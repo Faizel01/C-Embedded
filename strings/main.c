@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// VARIANT 16, BUT VARIANT 13 IS MAXIMUM, SO DOING VARIANT 3
+// VARIANT 16
 
 int main(void)
 {
@@ -9,13 +9,18 @@ int main(void)
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
 
+    int j = 0;
+
     for (int i = 0; str[i] != '\0'; i++)
     {
-        if (str[i] >= 'a' && str[i] <= 'z')
+        if (i % 2 != 0)
         {
-            str[i] = str[i] - ('a' - 'A');
+            str[j] = str[i];
+            j++;
         }
     }
+
+    str[j] = '\0';
 
     printf("Result: %s", str);
 
